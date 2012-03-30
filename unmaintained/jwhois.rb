@@ -33,3 +33,17 @@ index a818237..b5fe9c8 100644
    int error;
  
    memset(&hints, 0, sizeof(hints));
+
+diff --git a/src/utils.c b/src/utils.c
+index dcd17af..d73fdbf 100644
+--- a/src/utils.c
++++ b/src/utils.c
+@@ -288,7 +288,7 @@ make_connect(const char *host, int port)
+ 
+       retlen = sizeof(retval);
+       error = getsockopt(sockfd, SOL_SOCKET, SO_ERROR, &retval, &retlen);
+-      if (error < 0 || retval)
++      if (error < 0 || !retval)
+ 	{
+ 	  break;
+ 	}
